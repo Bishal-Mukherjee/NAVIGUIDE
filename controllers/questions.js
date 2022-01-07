@@ -83,7 +83,8 @@ exports.getQuestions = async (req, res) => {
 };
 
 exports.fetchQuestions = async (req, res) => {
-  const { page = 1, limit = 10 } = req.params;
+  const { page = 1 } = req.params;
+  const limit = 1000;
   const questions = await Question.find({})
     .limit(limit * 1)
     .skip((page - 1) * limit)
