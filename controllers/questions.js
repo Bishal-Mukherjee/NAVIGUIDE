@@ -72,14 +72,6 @@ exports.getQuestions = async (req, res) => {
 
     return res.status(200).json({ message: "SUCCESS" });
   });
-
-  // myQuestions.map(async (q) => {
-  //   const isPresent = await Question.findOne({ qId: q.qId });
-  //   if (!isPresent) {
-  //     let question = new Question(q);
-  //     question.save();
-  //   }
-  // });
 };
 
 exports.fetchQuestions = async (req, res) => {
