@@ -8,7 +8,7 @@ const subSectionSchema = mongoose.Schema({
     type: String,
   },
   subParent: {
-    type: String,
+    type: Number,
   },
   subLink: {
     type: String,
@@ -37,26 +37,15 @@ const subSectionSchema = mongoose.Schema({
   attachmentLink: {
     type: String,
   },
-  ranks: [
-    {
-      rank: {
-        type: Number,
-      },
-    },
-  ],
-  shipType: [
-    {
-      ship: {
-        type: Number,
-      },
-    },
-  ],
+  ranks: {
+    type: String,
+  },
+  shipType: {
+    type: String,
+  },
   evidence: {
     type: String,
   },
 });
 
-module.exports = SubSection = mongoose.model(
-  "subSectionSchema",
-  subSectionSchema
-);
+module.exports = SubSection = mongoose.model("subSection", subSectionSchema);
