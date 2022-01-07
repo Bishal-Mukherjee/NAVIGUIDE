@@ -6,7 +6,6 @@ const subSection = require("../controllers/subSection");
 router.get("/sub-section", subSection.addSubSections);
 
 // desc: get sub-sectionsn on the basis of section
-router.get("/sub-section/:sectionId", subSection.getSubSections);
+router.get("/fetch-subSections", subSection.getSubSections);
 
 module.exports = router;
-

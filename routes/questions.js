@@ -42,4 +42,6 @@ router.post("/add-question", async (req, res) => {
   });
 });
 
+router.get("/fetchQuestions/:page/:limit", questions.fetchQuestions);
+
 module.exports = router;

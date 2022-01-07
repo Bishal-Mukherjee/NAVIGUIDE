@@ -82,5 +82,12 @@ exports.getQuestions = async (req, res) => {
   // });
 };
 
-//prepare a route for changing the  to type from string to array, for rank and ship type also
-// try to string to integer
+exports.fetchQuestions = async (req, res) => {
+  const { page = 1, limit = 10 } = req.params;
+  const questions = await Question.find({})
+    .limit(limit * 1)
+    .skip((page - 1) * limit)
+    .sort({ _id: 1 });
+
+  res.status(200).json({ questions });
+};

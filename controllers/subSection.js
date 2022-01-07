@@ -81,9 +81,8 @@ exports.addSubSections = async (req, res) => {
   res.status(200).json({ message: "SUCCESS" });
 };
 
-// desc: get the sub-sections from the database
+// desc: get the all sub-sections from the database
 exports.getSubSections = async (req, res) => {
-  const { sectionId } = req.params;
-  const subSections = await SubSections.find({ subParent: sectionId });
+  const subSections = await SubSections.find({}).sort({ _id: 1 });
   res.status(200).json({ subSections });
 };
