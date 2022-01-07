@@ -39,6 +39,7 @@ const createData = (
   };
 };
 
+// desc: add subsections from google sheet
 exports.addSubSections = async (req, res) => {
   await doc.useServiceAccountAuth({
     client_email: process.env.CLIENT_EMAIL,
@@ -80,6 +81,7 @@ exports.addSubSections = async (req, res) => {
   res.status(200).json({ message: "SUCCESS" });
 };
 
+// desc: get the sub-sections from the database
 exports.getSubSections = async (req, res) => {
   const { sectionId } = req.params;
   const subSections = await SubSections.find({ subParent: sectionId });

@@ -3,7 +3,6 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const AWS = require("aws-sdk");
 const { getSectionNameAndSeq } = require("../actions/roles");
-// const { getShipId, getPositionId } = require("../actions/postion&ship");
 require("dotenv").config();
 
 exports.register = async (req, res) => {

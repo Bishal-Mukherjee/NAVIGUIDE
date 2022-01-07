@@ -1,5 +1,4 @@
 const Ships = require("../models/Ships");
-const Positions = require("../models/Positions");
 
 exports.getShips = (req, res) => {
   Ships.find()
