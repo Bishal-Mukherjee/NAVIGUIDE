@@ -23,6 +23,7 @@ app.use("/api/positions", require("./routes/positions"));
 app.use("/api/sections", require("./routes/sections"));
 app.use("/api/subsection", require("./routes/subSection"));
 app.use("/api/config", require("./routes/config"));
+app.use("/api/report", require("./routes/report"));
 
 const PORT = process.env.PORT;
 
