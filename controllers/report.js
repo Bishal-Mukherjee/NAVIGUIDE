@@ -1,24 +1,22 @@
 const Report = require("../models/Report");
 
 exports.saveReport = async (req, res) => {
-  const { qId, userId, answer, comment, imageLink } = req.body;
-  const reports = await Report.find({}).sort({ _id: -1 });
-  let formedAnswerId =
-    "Q" + qId + "_" + (reports.length + 1) + "_" + "U" + userId;
+  const { reports } = req.body;
+  reports.map(async (report) => {
+    let formedAnswerId = "Q" + report.qId + "_" + "U" + report.userId;
 
-  let newReport = Report({
-    qId,
-    userId,
-    answerId: formedAnswerId,
-    answer,
-    comment,
-    imageLink,
+    let newReport = Report({
+      qId: report.qId,
+      userId: report.userId,
+      answerId: formedAnswerId,
+      comment: report.comment,
+      imageLink: report.imageLink,
+    });
+
+    await newReport.save();
   });
-  await newReport.save();
 
-  res
-    .status(200)
-    .json({ responseCode: 200, responseMessage: "SUCCESS", report: newReport });
+  res.status(200).json({ responseCode: 200, responseMessage: "SUCCESS" });
 };
 
 exports.getReport = async (req, res) => {
