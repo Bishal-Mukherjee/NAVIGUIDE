@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 
 const reportSchema = mongoose.Schema({
-  // questionId, answer, comment, imagelink
   qId: {
     type: Number,
   },
   userId: {
-    type: String,
+    type: Number,
   },
   answerId: {
     type: String,
